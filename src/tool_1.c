@@ -2,19 +2,6 @@
 #include "../libft/libft.h"
 #include "../libft/get_next_line.h"
 
-static void free_arr(char **arr)
-{
-    size_t  i;
-
-    i = 0;
-    while (arr[i])
-    {
-        free(arr[i]);
-        i++;
-    }
-    free(arr);
-}
-
 static int  isdigit_base(char c, int base)
 {
     const char  *digits = "0123456789ABCDEF";
@@ -88,13 +75,13 @@ t_bool is_number(char *str, int base)
 
 int     atoi_base(const char *str, int base)
 {
-    unsigned long result;
-    size_t          i;
+    unsigned long 	result;
     int             sign;
+	size_t          i;
 
     result = 0;
-    i = 0;
     sign = 1;
+	i = 0;
     while (is_space(str[i]))
         i++;
     if (base != 10 && !has_prefix(&str[i], base))

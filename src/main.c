@@ -5,21 +5,21 @@
 
 int main(int argc, char *argv[])
 {
-    int     fd;
-    t_map   *map;
-    t_env   *env;
+    int     			fd;
+    t_map   			*map;
+	t_env				*env;
+	t_matrix_element	*matrix_element_stack;
 
     errno = 0;
-
     if (argc == 2)
     {
         if (!(fd = open(argv[1], O_RDONLY)) >= 0))
             terminate(ERR_MAP_OPENING);
         map = map_init();
-        if (load_map(fd, , map) == -1)
+        if (load_map(fd, &matrix_element_stack, map) == -1)
             terminate(ERR_MAP_LOADING);
         env = env_init(map);
-
+		transform_to_array(&matrix_element_stack, map);
         env->camera = camera_init(env);
 		draw(env->map, env);
 
@@ -37,4 +37,3 @@ void	terminate(char *str)
 		perror(str);
 	exit(1);
 }
-

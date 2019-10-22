@@ -17,7 +17,8 @@
 # define ERR_ENV_INIT_WIN				"Error: Environment initialization(win)."
 # define ERR_ENV_INIT_IMG				"Error: Environment initialization(img)."
 # define ERR_ENV_INIT_MOUSE				"Error: Environment initialization(mouse)."
-# define ERR_CONV_TO_ ...				"Error: 
+# define ERR_TRANSFORM_TO_ARRAY_		"Error: Transformation from stack to array(matrix_elements)."
+# define ERR_TRANSFORM_TO_ARRAY_COLOR	"Error: Transformation from stack to array(color array)."
 # define ERR_CAMERA_INIT				"Error: Camera initialization."
 
 # define WIDTH              			1080
@@ -101,8 +102,8 @@ typedef struct
 {
     int width;
     int height;
-    int  *matrix_elements_arr;
-    int  *colors_arr;
+    int  *matrix_element_arr;
+    int  *color_arr;
     int  z_max;
 	int  z_min;
     int  z_range;
@@ -110,14 +111,14 @@ typedef struct
 
 typedef struct
 {
-    enum projection projection;
+    t_projection projection;
     int          zoom;
     double       alpha;
     double       beta;
     double       gamma;
-    // float        z_divisor;
-    // int          x_offset;
-    // int          y_offset;
+    float        z_divisor;
+    int          x_offset;
+    int          y_offset;
 }   t_camera;
 
 typedef struct
