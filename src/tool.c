@@ -101,21 +101,6 @@ int     atoi_base(const char *str, int base)
     return ((int)(result * sign));
 }
 
-int close(void *param)
-{
-    (void)param;
-    exit(0);
-}
-
-void    connect_controllers(t_env *env)
-{
-    mlx_hook(env->win, 2, 0, press_key, env);
-    mlx_hook(env->win, 17, 0, close, env);
-    mlx_hook(env->win, 4, 0, activate_mouse, env);
-    mlx_hook(env->win, 5, 0, deactivate_mouse, env);
-    mlx_hook(env->win, 6, 0, move_mouse, env);
-}
-
 int get_index(int x, int y, int width)
 {
     int index;

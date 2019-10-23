@@ -22,8 +22,8 @@ static void draw_line(t_point a, t_point b, t_env *env)
     t_point cur;
     int     error[2];
 
-    delta.x = FT_ABS(b.x - a.x);
-    delta.y = FT_ABS(b.y - a.y);
+    delta.x = ABS_VAL(b.x - a.x);
+    delta.y = ABS_VAL(b.y - a.y);
     sign.x = b.x > a.x ? 1 : -1;
     sign.y = b.y > a.y ? 1 : -1;
     error[0] = delta.x - delta.y;

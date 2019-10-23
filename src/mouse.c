@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-int activate_mouse(int mouse_button, int x, int y, void *param)
+int click_mouse(int mouse_button, int x, int y, void *param)
 {
     t_env   *env;
 
@@ -14,7 +14,7 @@ int activate_mouse(int mouse_button, int x, int y, void *param)
     return (0);
 }
 
-int deactivate_mouse(int mouse_button, int x, int y, void *param)
+int release_mouse(int mouse_button, int x, int y, void *param)
 {
     t_env   *env;
 

@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void    camera_choose_projection(int key, t_env *env)
+void	switch_camera_projection(int key, t_env *env)
 {
     env->camera->alpha = 0;
     env->camera->beta = 0;
@@ -11,7 +11,7 @@ void    camera_choose_projection(int key, t_env *env)
         env->camera->projection = parallel;
 }
 
-void    camera_move(int key, t_env *env)
+void	move_camera(int key, t_env *env)
 {
     if (key == KEYBOARD_ARROW_LEFT)
         env->camera->x_offset -= 10;
@@ -24,7 +24,7 @@ void    camera_move(int key, t_env *env)
     draw(env->map, env);
 }
 
-void    camera_zoom(int key, t_env *env)
+void	zoom_camera(int key, t_env *env)
 {
     if (key == KEYBOARD_MAIN_PAD_PLUS ||
         key == KEYBOARD_NUM_PAD_PLUS ||
@@ -39,7 +39,7 @@ void    camera_zoom(int key, t_env *env)
     draw(env->map, env);
 }
 
-void    camera_rotate(int key, t_env *env)
+void	rotate_camera(int key, t_env *env)
 {
     if (key == KEYBOARD_MAIN_PAD_2 || KEYBOARD_NUM_PAD_2)
         env->camera->alpha += 0.05;
@@ -58,11 +58,11 @@ void    camera_rotate(int key, t_env *env)
     draw(env->map, env);
 }
 
-void    camera_flatten(int key, t_env *env)
+void	flatten_camera(int key, t_env *env)
 {
     if (key == KEYBOARD_MAIN_PAD_MORE)
         env->camera->z_divisor += 0.1;
-    if (key == KEYBOARD_MAIN_PAD_LESS)
+    else if (key == KEYBOARD_MAIN_PAD_LESS)
         env->camera->z_divisor -= 0.1;
     if (env->camera->z_divisor > 10)
         env->camera->z_divisor = 10;
