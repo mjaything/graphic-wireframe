@@ -2,7 +2,7 @@
 #include "../libft/libft.h"
 #include "../libft/get_next_line.h"
 
-static int  isdigit_base(char c, int base)
+static int  is_digit_base(char c, int base)
 {
     const char  *digits = "0123456789ABCDEF";
     int         i;
@@ -64,7 +64,7 @@ t_bool is_number(char *str, int base)
         i++;
     else if ((base == 10) && (str[i] == '-' || str[i] == '+'))
         i++;
-    while (isdigit_base(str[i++], base) >= 0)
+    while (is_digit_base(str[i++], base) >= 0)
         digits++;
     if (!str[i] && digits)
         true;
@@ -96,7 +96,46 @@ int     atoi_base(const char *str, int base)
             sign = -1;
         i++;
     }
-    while (isdigit_base(str[i], base) >= 0)
-        result = result * base + isdigit_base(str[i++], base);
+    while (is_digit_base(str[i], base) >= 0)
+        result = result * base + is_digit_base(str[i++], base);
     return ((int)(result * sign));
+}
+
+int close(void *param)
+{
+    (void)param;
+    exit(0);
+}
+
+void    connect_controllers(t_env *env)
+{
+    mlx_hook(env->win, 2, 0, press_key, env);
+    mlx_hook(env->win, 17, 0, close, env);
+    mlx_hook(env->win, 4, 0, activate_mouse, env);
+    mlx_hook(env->win, 5, 0, deactivate_mouse, env);
+    mlx_hook(env->win, 6, 0, move_mouse, env);
+}
+
+int get_index(int x, int y, int width)
+{
+    int index;
+
+    index = x + (y * width);
+    return (index);
+}
+
+t_point new_point(int x, int y, t_map *map)
+{
+    t_point p;
+    int     i;
+
+    i = get_index(x, y, map->width);
+    p.x = x;
+    p.y = y;
+    p.z = map->matrix_element_arr[i];
+    if (map->color_arr[i] == -1)
+        p.color = get_basic_color(p.z, map);
+    else
+        p.color = map->color_arr[i];
+    return (p);
 }

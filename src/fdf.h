@@ -23,10 +23,10 @@
 
 # define WIDTH              			1080
 # define HEIGHT             			1920
-# define MENU_WIDTH         			300
+# define INSTRUCTION_WIDTH     			300
 
 # define COLOR_TEXT_BLACK				0x000000
-# define COLOR_MENU_WHITE				0xFFFFFF
+# define COLOR_INSTRUCTION_WHITE		0xFFFFFF
 # define COLOR_BACKGROUND_ROSE_WHITE	0xFDF2EE
 # define COLOR_WIRE_PALE_SLATE			0xCAC2BE
 # define COLOR_WIRE_HURRICANE			0x827C7A
@@ -100,13 +100,13 @@ typedef struct
 
 typedef struct
 {
-    int width;
-    int height;
-    int  *matrix_element_arr;
-    int  *color_arr;
-    int  z_max;
-	int  z_min;
-    int  z_range;
+    int 	width;
+    int		height;
+	int  	z_min;
+    int  	z_max;
+    int  	z_range;
+	int  	*matrix_element_arr;
+    int  	*color_arr;
 }   t_map;
 
 typedef struct
@@ -139,16 +139,19 @@ typedef struct
 
 typedef struct
 {
-    void    *mlx;
-    void    *win;
-    void    *img;
-    char    *data_addr;
-    int      bits_per_pixel;
-    int      size_line;
-    int      endian;
-    t_map    *map;
-	t_camera *camera;
-    t_mouse  *mouse;
+    void    	*mlx_ptr;
+    void    	*win_ptr;
+    void    	*img_ptr;
+    char    	*data_addr;
+    int      	bits_per_pixel;
+    int      	size_line;
+    int      	endian;
+	t_mouse  	*mouse;
+	t_camera 	*camera;
+    t_map    	*map;
 }   t_env;
+
+
+int	rea
 
 #endif

@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include <string.h>
 
+# define ABS(X) (((X) > 0) ? (X) : (-(X)))
+
+# define UINT_MAX	((unsigned)(~0L))
+# define INT_MAX	((int)UINT_MAX >> 1))
+# define INT_MIN	((int)(~INT_MAX))
+
 typedef struct	s_list
 {
 	void			*content;

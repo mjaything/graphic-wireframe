@@ -25,7 +25,7 @@ t_matrix_element    *pop(t_matrix_element **matrix_elements_stack)
     return (top);
 }
 
-void                transform_to_array(t_matrix_element **matrix_element_stack,
+void                transform_stack_to_array(t_matrix_element **matrix_element_stack,
                                         t_map *map)
 {
     t_matrix_element    *matrix_element;

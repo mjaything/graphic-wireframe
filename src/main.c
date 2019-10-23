@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
         map = map_init();
         if (load_map(fd, &matrix_element_stack, map) == -1)
             terminate(ERR_MAP_LOADING);
-        env = env_init(map);
-		transform_to_array(&matrix_element_stack, map);
-        env->camera = camera_init(env);
+        env = initialize_env(map);
+		transform_stack_to_array(&matrix_element_stack, map);
+        env->camera = initialiaze_camera(env);
 		draw(env->map, env);
-
+		connect_cotrollers(env);
 		mlx_loop(env->mlx);
     }
     terminate(ERR_USAGE);
