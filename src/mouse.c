@@ -9,7 +9,7 @@ int click_mouse(int mouse_button, int x, int y, void *param)
     env = (t_env *)param;
     if (mouse_button == MOUSE_SCROLL_UP || mouse_button == MOUSE_SCROLL_DOWN)
         zoom(mouse_button, env);
-    else if (mouse_button == MOUSE_LEFT_CLICK)
+    else if (mouse_button == MOUSE_LEFT_BUTTON)
         env->mouse->clicked = true;
     return (0);
 }

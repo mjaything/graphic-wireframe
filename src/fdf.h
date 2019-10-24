@@ -34,9 +34,9 @@
 # define COLOR_WIRE_NIGHT_RIDER			0x353232
 # define COLOR_WIRE_NERO				0x222020
 
-# define MOUSE_LEFT_CLICK				1
-# define MOUSE_RIGHT_CLICK	            2
-# define MOUSE_THIRD_CLICK	            3
+# define MOUSE_LEFT_BUTTON				1
+# define MOUSE_RIGHT_BUTTON	            2
+# define MOUSE_THIRD_BUTTON	            3
 # define MOUSE_SCROLL_UP	            4
 # define MOUSE_SCROLL_DOWN	            5
 # define MOUSE_SCROLL_LEFT	            6
