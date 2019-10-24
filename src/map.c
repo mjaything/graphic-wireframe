@@ -1,6 +1,9 @@
 #include "fdf.h"
+#include "../libft/libft.h"
+#include "../libft/get_next_line.h"
+#include <stdlib.h>
 
-static void free_arr(char **arr)
+static void             free_arr(char **arr)
 {
     size_t  i;
 
@@ -33,7 +36,7 @@ static t_matrix_element *new_matrix_element(char *str)
     return (element);
 }
 
-static void parse_row(char **row_arr, t_matrix_element **matrix_element_stack, t_map *map)
+static void             parse_row(char **row_arr, t_matrix_element **matrix_element_stack, t_map *map)
 {
     int width;
 
@@ -49,7 +52,7 @@ static void parse_row(char **row_arr, t_matrix_element **matrix_element_stack, t
         terminate(ERR_MAP_FILE);
 }
 
-int     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *map)
+int                     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *map)
 {
     char    *row;
     char    **row_arr;
@@ -61,7 +64,7 @@ int     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *m
             terminate(ERR_MAP_LOADING);
         parse_row(row_arr, matrix_element_stack, map);
         free_arr(row_arr);
-        ft_strdel(row);
+        ft_strdel(&row);
         map->height++;
     }
     if (!(*matrix_element_stack))
