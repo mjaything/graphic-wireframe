@@ -2,7 +2,7 @@
 #include "../libft/libft.h"
 #include "../minilibx_macos/mlx.h"
 
-t_env   *inititalize_env(t_map *map)
+t_env   	*inititalize_env(t_map *map)
 {
     t_env   *env;
 
@@ -22,7 +22,7 @@ t_env   *inititalize_env(t_map *map)
     return (env);
 }
 
-t_map   *initialize_map(void)
+t_map   	*initialize_map(void)
 {
     t_map   *map;
 
