@@ -151,7 +151,48 @@ typedef struct
     t_map    	*map;
 }   t_env;
 
-
-int	rea
+void	    			switch_camera_projection(int key, t_env *env);
+void	    			move_camera(int key, t_env *env);
+void					zoom_camera(int key, t_env *env);
+void					rotate_camera(int key, t_env *env);
+void					flatten_camera(int key, t_env *env);
+static int				is_digit_base(char c, int base);
+static t_bool 			has_prefix(const char *str, int base);
+int 					is_space(int c);
+t_bool 					is_number(char *str, int base);
+double  				get_altitude_percentage(int start, int end, int current);
+int 					get_basic_color(int z, t_map *map);
+int 					get_light(int start, int end, double altitude_percentage);
+int 					get_final_color(t_point current, t_point start, t_point end, t_point delta);
+static void 			put_pixel(t_env *env, int x, int y, int color);
+static void 			draw_line(t_point a, t_point b, t_env *env);
+static void 			draw_background_color(t_env *env);
+void					draw_instruction(t_env *env);
+void					draw(t_map *map, t_env *env);
+int 					close(void *param);
+void    				setup_events(t_env *env);
+t_env   				*inititalize_env(t_map *map);
+t_map   				*initialize_map(void);
+t_camera				*initialize_camera(t_env *env);
+int 					press_key(int key, void *param);
+static void				free_arr(char **arr);
+static t_matrix_element *new_matrix_element(char *str);
+static void             parse_row(char **row_arr, t_matrix_element **matrix_element_stack, t_map *map);
+int                     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *map);
+int 					click_mouse(int mouse_button, int x, int y, void *param);
+int 					release_mouse(int mouse_button, int x, int y, void *param);
+int 					move_mouse(int x, int y, void *param);
+static void 			rotate_x_axis(int *y, int *z, double alpha);
+static void 			rotate_y_axis(int *x, int *z, double beta);
+static void 			rotate_z_axis(int *x, int *y, double gamma);
+static void 			transform_to_isometric_projection(int *x, int *y, int z);
+t_point 				project_2d(t_point p, t_env *env);
+void					push(t_matrix_element **matrix_elements_stack, t_matrix_element *new_element);
+t_matrix_element		*pop(t_matrix_element **matrix_elements_stack);
+void					transform_stack_to_array(t_matrix_element **matrix_element_stack, t_map *map);
+int     				atoi_base(const char *str, int base);
+int 					get_index(int x, int y, int width);
+t_point 				new_point(int x, int y, t_map *map);
+void					terminate(char *str);
 
 #endif
