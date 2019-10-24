@@ -46,11 +46,11 @@ t_camera	*initialize_camera(t_env *env)
 		terminate(ERR_CAMERA_INIT);
 	camera->zoom = MIN_VAL((WIDTH - INSTRUCTION_WIDTH) / env->map->width / 2,
 							HEIGHT / env->map->height / 2);
-	camera->alhpa = 0;
+	camera->alpha = 0;
 	camera->beta = 0;
 	camera->gamma = 0;
-	camera->z_divisor = 1;
 	camera->x_offset = 0;
 	camera->y_offset = 0;
+    camera->z_divisor = 1;
 	return (camera);
 }

@@ -96,10 +96,10 @@ void		draw(t_map *map, t_env *env)
         while (x < map->width)
         {
             if (x != env->map->width - 1)
-                draw_line(project(new_point(x, y, map), env),
+                draw_line(project_2d(new_point(x, y, map), env),
                             project_2d(new_point(x + 1, y, map), env), env);
             if (y != env->map->height - 1)
-                draw_line(project(new_point(x, y, map), env),
+                draw_line(project_2d(new_point(x, y, map), env),
                             project_2d(new_point(x, y + 1, map), env), env);
             x++;
         }

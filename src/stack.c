@@ -20,7 +20,7 @@ t_matrix_element	*pop(t_matrix_element **matrix_element_stack)
     if (matrix_element_stack && *matrix_element_stack)
     {
         top = *matrix_element_stack;
-        *matrix_elements_stack = (*matrix_element_stack)->next;
+        *matrix_element_stack = (*matrix_element_stack)->next;
     }
     return (top);
 }
@@ -36,7 +36,7 @@ void				transform_stack_to_array(t_matrix_element **matrix_element_stack,
     if (!(map->matrix_element_arr = (int *)ft_memalloc(arr_size)))
         terminate(ERR_TRANSFORM_TO_ARRAY);
     if (!(map->color_arr = (int *)ft_memalloc(arr_size)))
-        terminate(ERR_TRANSFORM_TO_ARRAY_COLOR);
+        terminate(ERR_TRANSFORM_TO_COLOR_ARRAY);
     i = (map->width * map->height) - 1;
     while ((matrix_element = pop(matrix_element_stack)) && i >= 0)
     {
