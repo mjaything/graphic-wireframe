@@ -17,7 +17,10 @@
 # include <unistd.h>
 # include <string.h>
 
-# define ABS(X) (((X) > 0) ? (X) : (-(X)))
+# define ABS_VAL(X) (((X) > 0) ? (X) : (-(X)))
+
+# define MIN_VAL(A, B) (((A) < (B)) ? (A) : (B))
+# define MAX_VAL(A, B) (((A) > (B)) ? (A) : (B))
 
 # define UINT_MAX	((unsigned)(~0L))
 # define INT_MAX	((int)UINT_MAX >> 1))

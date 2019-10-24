@@ -17,7 +17,7 @@
 # define ERR_ENV_INIT_WIN				"Error: Environment initialization(win)."
 # define ERR_ENV_INIT_IMG				"Error: Environment initialization(img)."
 # define ERR_ENV_INIT_MOUSE				"Error: Environment initialization(mouse)."
-# define ERR_TRANSFORM_TO_ARRAY_		"Error: Transformation from stack to array(matrix_elements)."
+# define ERR_TRANSFORM_TO_ARRAY			"Error: Transformation from stack to array(matrix_elements)."
 # define ERR_TRANSFORM_TO_ARRAY_COLOR	"Error: Transformation from stack to array(color array)."
 # define ERR_CAMERA_INIT				"Error: Camera initialization."
 
