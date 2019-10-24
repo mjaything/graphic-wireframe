@@ -124,3 +124,13 @@ t_point new_point(int x, int y, t_map *map)
         p.color = map->color_arr[i];
     return (p);
 }
+
+
+void	terminate(char *str)
+{
+	if (errno == 0)
+		ft_putendl_fd(str, 2);
+	else
+		perror(str);
+	exit(1);
+}
