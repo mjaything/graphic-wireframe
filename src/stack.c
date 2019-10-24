@@ -1,7 +1,7 @@
 #include "fdf.h"
 #include <stdlib.h>
 
-void                push(t_matrix_element **matrix_elements_stack,
+void				push(t_matrix_element **matrix_elements_stack,
                             t_matrix_element *new_element)
 {
     if (matrix_elements_stack)
@@ -12,7 +12,7 @@ void                push(t_matrix_element **matrix_elements_stack,
     }
 }
 
-t_matrix_element    *pop(t_matrix_element **matrix_elements_stack)
+t_matrix_element	*pop(t_matrix_element **matrix_elements_stack)
 {
     t_matrix_element    *top;
 
@@ -25,7 +25,7 @@ t_matrix_element    *pop(t_matrix_element **matrix_elements_stack)
     return (top);
 }
 
-void                transform_stack_to_array(t_matrix_element **matrix_element_stack,
+void				transform_stack_to_array(t_matrix_element **matrix_element_stack,
                                         t_map *map)
 {
     t_matrix_element    *matrix_element;
@@ -34,10 +34,10 @@ void                transform_stack_to_array(t_matrix_element **matrix_element_s
 
     arr_size = map->width * map->height * sizeof(int);
     if (!(map->matrix_element_arr = (int *)ft_memalloc(arr_size)))
-        terminate()
+        terminate(ERR_TRANSFORM_TO_ARRAY);
     if (!(map->color_arr = (int *)ft_memalloc(arr_size)))
-        terminate()
-    i = map->width * map->height - 1;
+        terminate(ERR_TRANSFORM_TO_ARRAY_COLOR);
+    i = (map->width * map->height) - 1;
     while ((matrix_element = pop(matrix_element_stack)) && i >= 0)
     {
         map->matrix_element_arr[i] = matrix_element->z;
