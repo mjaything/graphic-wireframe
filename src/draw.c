@@ -10,8 +10,8 @@ static void put_pixel(t_env *env, int x, int y, int color)
     {
         i = (x * env->bits_per_pixel / 8) + (y * env->size_line);
         env->data_addr[i] = color;
-        env->data_addr[i++] = color >> 8;
-        env->data_addr[i++] = color >> 16;
+        env->data_addr[++i] = color >> 8;
+        env->data_addr[++i] = color >> 16;
     }
 }
 

@@ -58,6 +58,6 @@ int get_final_color(t_point current, t_point start, t_point end, t_point delta)
 	green = get_light((start.color >> 8) & 0xFF,
 						(end.color >> 8) & 0xFF, altitude_percentage);
 	blue = get_light(start.color & 0xFF,
-					(end.color & 0xFF, altitude_percentage);
+					end.color & 0xFF, altitude_percentage);
 	return ((red << 16) | (green << 8) | blue);
 }
