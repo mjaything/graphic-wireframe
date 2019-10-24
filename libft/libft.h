@@ -22,9 +22,9 @@
 # define MIN_VAL(A, B) (((A) < (B)) ? (A) : (B))
 # define MAX_VAL(A, B) (((A) > (B)) ? (A) : (B))
 
-# define UINT_MAX	((unsigned)(~0L))
-# define INT_MAX	((int)UINT_MAX >> 1))
-# define INT_MIN	((int)(~INT_MAX))
+# define UINT_MAX_VAL	((unsigned)(~0L))
+# define INT_MAX_VAL	((int)UINT_MAX_VAL >> 1))
+# define INT_MIN_VAL	((int)(~INT_MAX_VAL))
 
 typedef struct	s_list
 {
