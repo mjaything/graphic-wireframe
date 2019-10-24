@@ -30,7 +30,7 @@ static void rotate_z_axis(int *x, int *y, double gamma)
     *y = (old_x * sin(gamma)) + (old_y * cos(gamma));
 }
 
-static void isometric_projection(int *x, int *y, int z)
+static void transform_to_isometric_projection(int *x, int *y, int z)
 {
     int old_x;
     int old_y;
@@ -41,7 +41,7 @@ static void isometric_projection(int *x, int *y, int z)
     *y = -z + (old_x + old_y) * sin(0.523599);
 }
 
-t_point project(t_point p, t_env *env)
+t_point project_2d(t_point p, t_env *env)
 {
     p.x *= env->camera->zoom;
     p.y *= env->camera->zoom;
@@ -52,7 +52,7 @@ t_point project(t_point p, t_env *env)
     rotate_y_axis(&p.x, &p.z, env->camera->beta);
     rotate_z_axis(&p.x, &p.y, env->camera->gamma);
     if (env->camera->projection == isometric)
-        isometric_projection(&p.x, &p.y, p.z);
+        transform_to_isometric_projection(&p.x, &p.y, p.z);
     p.x += ((WIDTH - INSTRUCTION_WIDTH) / 2) + env->camera->x_offset + INSTRUCTION_WIDTH;
     p.y += (HEIGHT + env->map->height * env->camera->zoom) / 2 + env->camera->y_offset;
     return (p);
