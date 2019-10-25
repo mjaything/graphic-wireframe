@@ -6,25 +6,25 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:16 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/24 20:37:17 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/25 07:44:07 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define ERR_USAGE						"Error: Invalid input arguments. Usage: ./fdf MAP_FILE"
+# define ERR_USAGE						"Error: Usage: ./fdf MAP_FILE"
 # define ERR_MAP_FILE					"Error: Invalid map file."
 # define ERR_MAP_OPENING				"Error: Map opening."
 # define ERR_MAP_LOADING				"Error: Map loading."
 # define ERR_MAP_INIT					"Error: Map initialization."
-# define ERR_ENV_INIT_MEMALLOC			"Error: Environment initialization - memalloc."
-# define ERR_ENV_INIT_MLX				"Error: Environment initialization(mlx)."
-# define ERR_ENV_INIT_WIN				"Error: Environment initialization(win)."
-# define ERR_ENV_INIT_IMG				"Error: Environment initialization(img)."
-# define ERR_ENV_INIT_MOUSE				"Error: Environment initialization(mouse)."
-# define ERR_TRANSFORM_TO_ARRAY			"Error: Transformation from stack to array(matrix_elements)."
-# define ERR_TRANSFORM_TO_COLOR_ARRAY	"Error: Transformation from stack to array(color array)."
+# define ERR_ENV_INIT_MEMALLOC			"Error: Env init(memalloc)."
+# define ERR_ENV_INIT_MLX				"Error: Env init(mlx)."
+# define ERR_ENV_INIT_WIN				"Error: Environment init(win)."
+# define ERR_ENV_INIT_IMG				"Error: Environment init(img)."
+# define ERR_ENV_INIT_MOUSE				"Error: Environment init(mouse)."
+# define ERR_TRANSFORM_TO_ARRAY			"Error: Stack to array(elements)."
+# define ERR_TRANSFORM_TO_COLOR_ARRAY	"Error: Stack to array(color)."
 # define ERR_CAMERA_INIT				"Error: Camera initialization."
 
 # define WIDTH							3000
@@ -84,109 +84,124 @@
 # define KEYBOARD_NUM_PLUS				69
 # define KEYBOARD_NUM_MINUS				78
 
-typedef enum
+typedef enum							e_bool
 {
 	false,
 	true
-}	t_bool;
+}										t_bool;
 
-typedef enum
+typedef enum							e_projection
 {
 	isometric,
 	parallel
-}	t_projection;
+}										t_projection;
 
-typedef struct
+typedef struct							s_pointt
 {
-    int x;
-    int y;
-    int z;
-    int color;
-}   t_point;
+	int									x;
+	int									y;
+	int									z;
+	int									color;
+}										t_point;
 
-typedef struct
+typedef struct							s_map
 {
-    int 	width;
-    int		height;
-	int  	z_min;
-    int  	z_max;
-    int  	z_range;
-	int  	*matrix_element_arr;
-    int  	*color_arr;
-}   t_map;
+	int									width;
+	int									height;
+	int									z_min;
+	int									z_max;
+	int									z_range;
+	int									*matrix_element_arr;
+	int									*color_arr;
+}										t_map;
 
-typedef struct
+typedef struct							s_camera
 {
-    t_projection projection;
-    int          zoom;
-    double       alpha;
-    double       beta;
-    double       gamma;
-    int          x_offset;
-    int          y_offset;
-	float        z_divisor;
-}   t_camera;
+	t_projection						projection;
+	int									zoom;
+	double								alpha;
+	double								beta;
+	double								gamma;
+	int									x_offset;
+	int									y_offset;
+	float								z_divisor;
+}										t_camera;
 
-typedef struct
+typedef struct							s_mouse
 {
-    int         x;
-    int         y;
-    int         old_x;
-    int         old_y;
-    char        clicked;
-}   t_mouse;
+	int									x;
+	int									y;
+	int									old_x;
+	int									old_y;
+	char								clicked;
+}										t_mouse;
 
-typedef struct struct_matrix_element
+typedef struct							s_matrix_element
 {
-    int     			         z;
-    int     			         color;
-    struct struct_matrix_element  	    *next;
-}   t_matrix_element;
+	int									z;
+	int									color;
+	struct s_matrix_element				*next;
+}										t_matrix_element;
 
-typedef struct
+typedef struct							s_env
 {
-    void    	*mlx_ptr;
-    void    	*win_ptr;
-    void    	*img_ptr;
-    char    	*data_addr;
-    int      	bits_per_pixel;
-    int      	size_line;
-    int      	endian;
-	t_mouse  	*mouse;
-	t_camera 	*camera;
-    t_map    	*map;
-}   t_env;
+	void								*mlx_ptr;
+	void								*win_ptr;
+	void								*img_ptr;
+	char								*data_addr;
+	int									bits_per_pixel;
+	int									size_line;
+	int									endian;
+	t_mouse								*mouse;
+	t_camera							*camera;
+	t_map								*map;
+}										t_env;
 
-void	    			switch_camera_projection(int key, t_env *env);
-void	    			move_camera(int key, t_env *env);
-void					zoom_camera(int key, t_env *env);
-void					rotate_camera(int key, t_env *env);
-void					flatten_camera(int key, t_env *env);
-int 					is_space(int c);
-t_bool 					is_number(char *str, int base);
-double  				get_altitude_percentage(int start, int end, int current);
-int 					get_basic_color(int z, t_map *map);
-int 					get_light(int start, int end, double altitude_percentage);
-int 					get_final_color(t_point current, t_point start, t_point end, t_point delta);
-void					draw_instruction(t_env *env);
-void					draw(t_map *map, t_env *env);
-int						close(void *param);
-void    				setup_events(t_env *env);
-t_env   				*initialize_env(t_map *map);
-t_map   				*initialize_map(void);
-t_camera				*initialize_camera(t_env *env);
-int 					press_key(int key, void *param);
-int                     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *map);
-int 					click_mouse(int mouse_button, int x, int y, void *param);
-int 					release_mouse(int mouse_button, int x, int y, void *param);
-int 					move_mouse(int x, int y, void *param);
-t_point 				project_2d(t_point p, t_env *env);
-void					push(t_matrix_element **matrix_elements_stack, t_matrix_element *new_element);
-t_matrix_element		*pop(t_matrix_element **matrix_elements_stack);
-void					transform_stack_to_array(t_matrix_element **matrix_element_stack, t_map *map);
-int     				atoi_base(const char *str, int base);
-int 					get_index(int x, int y, int width);
-t_point 				new_point(int x, int y, t_map *map);
-void					terminate(char *str);
+void									switch_camera_projection(int key,
+										t_env *env);
+void									move_camera(int key, t_env *env);
+void									zoom_camera(int key, t_env *env);
+void									rotate_camera(int key, t_env *env);
+void									flatten_camera(int key, t_env *env);
+int										is_space(int c);
+t_bool									is_number(char *str,
+										int base);
+double									get_altitude_percentage(int start,
+										int end, int current);
+int										get_basic_color(int z, t_map *map);
+int										get_light(int start, int end,
+										double altitude_percentage);
+int										get_final_color(t_point current,
+										t_point start, t_point end,
+										t_point delta);
+void									draw_instruction(t_env *env);
+void									draw(t_map *map, t_env *env);
+int										close(void *param);
+void									setup_events(t_env *env);
+t_env									*initialize_env(t_map *map);
+t_map									*initialize_map(void);
+t_camera								*initialize_camera(t_env *env);
+int										press_key(int key, void *param);
+int										load_map(const int fd,
+										t_matrix_element **matrix_element_stack,
+										t_map *map);
+int										click_mouse(int mouse_button,
+										int x, int y, void *param);
+int										release_mouse(int mouse_button,
+										int x, int y, void *param);
+int										move_mouse(int x, int y, void *param);
+t_point									project_2d(t_point p, t_env *env);
+void									push(t_matrix_element \
+										**matrix_elements_stack,
+										t_matrix_element *new_element);
+t_matrix_element						*pop(t_matrix_element \
+										**matrix_elements_stack);
+void									transform_stack_to_array\
+											(t_matrix_element \
+										**matrix_element_stack, t_map *map);
+int										atoi_base(const char *str, int base);
+int										get_index(int x, int y, int width);
+t_point									new_point(int x, int y, t_map *map);
+void									terminate(char *str);
 
 #endif

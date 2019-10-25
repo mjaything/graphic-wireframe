@@ -42,7 +42,8 @@ SOURCES_LIST = camera.c\
 	mouse.c\
 	projection.c\
 	stack.c\
-	tool.c
+	tool.c\
+	transform.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 OBJECTS_DIRECTORY = objects/
