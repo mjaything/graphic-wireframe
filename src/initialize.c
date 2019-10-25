@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialize.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:36:51 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:36:52 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 #include "../libft/libft.h"
-#include "../minilibx_macos/mlx.h"
+#include "mlx.h"
 
-t_env   	*inititalize_env(t_map *map)
+t_env   	*initialize_env(t_map *map)
 {
     t_env   *env;
 

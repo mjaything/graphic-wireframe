@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:36:56 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:36:57 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
-#include "../minilibx_macos/mlx.h"
+#include "mlx.h"
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -22,7 +34,7 @@ int main(int argc, char *argv[])
             terminate(ERR_MAP_LOADING);
         env = initialize_env(map);
 		transform_stack_to_array(&matrix_element_stack, map);
-        env->camera = initialiaze_camera(env);
+        env->camera = initialize_camera(env);
 		draw(env->map, env);
 		setup_events(env);
 		mlx_loop(env->mlx_ptr);

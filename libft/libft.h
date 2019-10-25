@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 18:17:46 by min-kim           #+#    #+#             */
-/*   Updated: 2019/01/30 14:52:20 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/24 20:24:34 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <unistd.h>
 # include <string.h>
 
 # define ABS_VAL(X) (((X) > 0) ? (X) : (-(X)))
@@ -23,7 +22,7 @@
 # define MAX_VAL(A, B) (((A) > (B)) ? (A) : (B))
 
 # define UINT_MAX_VAL	((unsigned)(~0L))
-# define INT_MAX_VAL	((int)UINT_MAX_VAL >> 1))
+# define INT_MAX_VAL	((int)UINT_MAX_VAL >> 1)
 # define INT_MIN_VAL	((int)(~INT_MAX_VAL))
 
 typedef struct	s_list
@@ -52,6 +51,7 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strstr(const char *haystack, const char *needle);
 char			*ft_strnstr(const char *haystack, const char *needle,
 		size_t len);
+char			*ft_strndup(const char *s1, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);

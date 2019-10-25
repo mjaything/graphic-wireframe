@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:36:43 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:36:44 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 double  get_altitude_percentage(int start, int end, int current)
@@ -21,15 +33,15 @@ int get_basic_color(int z, t_map *map)
 
 	altitude_percentage = get_altitude_percentage(map->z_min, map->z_max, z);
 	if (altitude_percentage < 0.2)
-		return (COLOR_WIRE_NERO);
+		return (COLOR_WIRE_LIPSTICK);
 	else if (altitude_percentage < 0.4)
-		return (COLOR_WIRE_NIGHT_RIDER);
+		return (COLOR_WIRE_COSMIC);
 	else if (altitude_percentage < 0.6)
-		return (COLOR_WIRE_TUNDORA);
+		return (COLOR_WIRE_MOBSTER);
 	else if (altitude_percentage < 0.8)
-		return (COLOR_WIRE_HURRICANE);
+		return (COLOR_WIRE_CHAMBRAY);
 	else
-		return (COLOR_WIRE_PALE_SLATE);
+		return (COLOR_WIRE_CALYPSO);
 }
 
 int get_light(int start, int end, double altitude_percentage)

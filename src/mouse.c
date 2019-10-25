@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:37:00 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:37:01 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int click_mouse(int mouse_button, int x, int y, void *param)
@@ -8,7 +20,7 @@ int click_mouse(int mouse_button, int x, int y, void *param)
     (void)y;
     env = (t_env *)param;
     if (mouse_button == MOUSE_SCROLL_UP || mouse_button == MOUSE_SCROLL_DOWN)
-        zoom(mouse_button, env);
+        zoom_camera(mouse_button, env);
     else if (mouse_button == MOUSE_LEFT_BUTTON)
         env->mouse->clicked = true;
     return (0);

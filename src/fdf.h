@@ -1,11 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:37:16 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:37:17 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
-
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-# include "../minilibx_macos/mlx.h"
-# include "../minilibx_macos/mlx_int.h"
-# include "../minilibx_macos/mlx_new_window.h"
 
 # define ERR_USAGE						"Error: Invalid input arguments. Usage: ./fdf MAP_FILE"
 # define ERR_MAP_FILE					"Error: Invalid map file."
@@ -21,62 +27,62 @@
 # define ERR_TRANSFORM_TO_COLOR_ARRAY	"Error: Transformation from stack to array(color array)."
 # define ERR_CAMERA_INIT				"Error: Camera initialization."
 
-# define WIDTH              			1080
-# define HEIGHT             			1920
-# define INSTRUCTION_WIDTH     			300
+# define WIDTH							3000
+# define HEIGHT							2000
+# define INSTRUCTION_WIDTH				450
 
 # define COLOR_TEXT_BLACK				0x000000
 # define COLOR_INSTRUCTION_WHITE		0xFFFFFF
 # define COLOR_BACKGROUND_ROSE_WHITE	0xFDF2EE
-# define COLOR_WIRE_PALE_SLATE			0xCAC2BE
-# define COLOR_WIRE_HURRICANE			0x827C7A
-# define COLOR_WIRE_TUNDORA				0x534F4E
-# define COLOR_WIRE_NIGHT_RIDER			0x353232
-# define COLOR_WIRE_NERO				0x222020
+# define COLOR_WIRE_CALYPSO				0x3B7388
+# define COLOR_WIRE_CHAMBRAY			0x50627E
+# define COLOR_WIRE_MOBSTER				0x665174
+# define COLOR_WIRE_COSMIC				0x7B406A
+# define COLOR_WIRE_LIPSTICK			0x912F60
 
 # define MOUSE_LEFT_BUTTON				1
-# define MOUSE_RIGHT_BUTTON	            2
-# define MOUSE_THIRD_BUTTON	            3
-# define MOUSE_SCROLL_UP	            4
-# define MOUSE_SCROLL_DOWN	            5
-# define MOUSE_SCROLL_LEFT	            6
-# define MOUSE_SCROLL_RIGHT	            7
+# define MOUSE_RIGHT_BUTTON				2
+# define MOUSE_THIRD_BUTTON				3
+# define MOUSE_SCROLL_UP				4
+# define MOUSE_SCROLL_DOWN				5
+# define MOUSE_SCROLL_LEFT				6
+# define MOUSE_SCROLL_RIGHT				7
 
-# define KEYBOARD_MAIN_0			29
-# define KEYBOARD_MAIN_1			18
-# define KEYBOARD_MAIN_2			19
-# define KEYBOARD_MAIN_3			20
-# define KEYBOARD_MAIN_4			21
-# define KEYBOARD_MAIN_5			23
-# define KEYBOARD_MAIN_6			22
-# define KEYBOARD_MAIN_7			26
-# define KEYBOARD_MAIN_8			28
-# define KEYBOARD_MAIN_9			25
-# define KEYBOARD_MAIN_I			34
-# define KEYBOARD_MAIN_P			35
-# define KEYBOARD_MAIN_ESC		    53
-# define KEYBOARD_MAIN_PLUS         24
-# define KEYBOARD_MAIN_MINUS		27
-# define KEYBOARD_MAIN_LESS         43
-# define KEYBOARD_MAIN_MORE         47
+# define KEYBOARD_MAIN_0				29
+# define KEYBOARD_MAIN_1				18
+# define KEYBOARD_MAIN_2				19
+# define KEYBOARD_MAIN_3				20
+# define KEYBOARD_MAIN_4				21
+# define KEYBOARD_MAIN_5				23
+# define KEYBOARD_MAIN_6				22
+# define KEYBOARD_MAIN_7				26
+# define KEYBOARD_MAIN_8				28
+# define KEYBOARD_MAIN_9				25
+# define KEYBOARD_MAIN_I				34
+# define KEYBOARD_MAIN_P				35
+# define KEYBOARD_MAIN_ESC				53
+# define KEYBOARD_MAIN_PLUS				24
+# define KEYBOARD_MAIN_MINUS			27
+# define KEYBOARD_MAIN_LESS				43
+# define KEYBOARD_MAIN_MORE				47
 
-# define KEYBOARD_ARROW_LEFT            123
-# define KEYBOARD_ARROW_RIGHT           124
-# define KEYBOARD_ARROW_DOWN            125
-# define KEYBOARD_ARROW_UP              126
+# define KEYBOARD_ARROW_LEFT			123
+# define KEYBOARD_ARROW_RIGHT			124
+# define KEYBOARD_ARROW_DOWN			125
+# define KEYBOARD_ARROW_UP				126
 
-# define KEYBOARD_NUM_0			    82
-# define KEYBOARD_NUM_1			    83
-# define KEYBOARD_NUM_2			    84
-# define KEYBOARD_NUM_3			    85
-# define KEYBOARD_NUM_4			    86
-# define KEYBOARD_NUM_5			    87
-# define KEYBOARD_NUM_6			    88
-# define KEYBOARD_NUM_7			    89
-# define KEYBOARD_NUM_8			    91
-# define KEYBOARD_NUM_9			    92
-# define KEYBOARD_NUM_PLUS		    69
-# define KEYBOARD_NUM_MINUS		    78
+# define KEYBOARD_NUM_0					82
+# define KEYBOARD_NUM_1					83
+# define KEYBOARD_NUM_2					84
+# define KEYBOARD_NUM_3					85
+# define KEYBOARD_NUM_4					86
+# define KEYBOARD_NUM_5					87
+# define KEYBOARD_NUM_6					88
+# define KEYBOARD_NUM_7					89
+# define KEYBOARD_NUM_8					91
+# define KEYBOARD_NUM_9					92
+# define KEYBOARD_NUM_PLUS				69
+# define KEYBOARD_NUM_MINUS				78
 
 typedef enum
 {
@@ -130,11 +136,11 @@ typedef struct
     char        clicked;
 }   t_mouse;
 
-typedef struct
+typedef struct struct_matrix_element
 {
-    int     			z;
-    int     			color;
-    t_matrix_element  	*next;
+    int     			         z;
+    int     			         color;
+    struct struct_matrix_element  	    *next;
 }   t_matrix_element;
 
 typedef struct
@@ -156,36 +162,24 @@ void	    			move_camera(int key, t_env *env);
 void					zoom_camera(int key, t_env *env);
 void					rotate_camera(int key, t_env *env);
 void					flatten_camera(int key, t_env *env);
-static int				is_digit_base(char c, int base);
-static t_bool 			has_prefix(const char *str, int base);
 int 					is_space(int c);
 t_bool 					is_number(char *str, int base);
 double  				get_altitude_percentage(int start, int end, int current);
 int 					get_basic_color(int z, t_map *map);
 int 					get_light(int start, int end, double altitude_percentage);
 int 					get_final_color(t_point current, t_point start, t_point end, t_point delta);
-static void 			put_pixel(t_env *env, int x, int y, int color);
-static void 			draw_line(t_point a, t_point b, t_env *env);
-static void 			draw_background_color(t_env *env);
 void					draw_instruction(t_env *env);
 void					draw(t_map *map, t_env *env);
-int 					close(void *param);
+int						close(void *param);
 void    				setup_events(t_env *env);
-t_env   				*inititalize_env(t_map *map);
+t_env   				*initialize_env(t_map *map);
 t_map   				*initialize_map(void);
 t_camera				*initialize_camera(t_env *env);
 int 					press_key(int key, void *param);
-static void				free_arr(char **arr);
-static t_matrix_element *new_matrix_element(char *str);
-static void             parse_row(char **row_arr, t_matrix_element **matrix_element_stack, t_map *map);
 int                     load_map(const int fd, t_matrix_element **matrix_element_stack, t_map *map);
 int 					click_mouse(int mouse_button, int x, int y, void *param);
 int 					release_mouse(int mouse_button, int x, int y, void *param);
 int 					move_mouse(int x, int y, void *param);
-static void 			rotate_x_axis(int *y, int *z, double alpha);
-static void 			rotate_y_axis(int *x, int *z, double beta);
-static void 			rotate_z_axis(int *x, int *y, double gamma);
-static void 			transform_to_isometric_projection(int *x, int *y, int z);
 t_point 				project_2d(t_point p, t_env *env);
 void					push(t_matrix_element **matrix_elements_stack, t_matrix_element *new_element);
 t_matrix_element		*pop(t_matrix_element **matrix_elements_stack);

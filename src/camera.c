@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   camera.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:36:38 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:36:40 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	switch_camera_projection(int key, t_env *env)
@@ -41,19 +53,19 @@ void	zoom_camera(int key, t_env *env)
 
 void	rotate_camera(int key, t_env *env)
 {
-    if (key == KEYBOARD_MAIN_2 || KEYBOARD_NUM_2)
+    if (key == KEYBOARD_MAIN_2 || key == KEYBOARD_NUM_2)
         env->camera->alpha += 0.05;
-    else if (KEYBOARD_MAIN_8 || KEYBOARD_NUM_8)
+    else if (key == KEYBOARD_MAIN_8 || key == KEYBOARD_NUM_8)
         env->camera->alpha -= 0.05;
-    else if (KEYBOARD_MAIN_4 || KEYBOARD_NUM_4)
+    else if (key == KEYBOARD_MAIN_4 || key == KEYBOARD_NUM_4)
         env->camera->beta -= 0.05;
-    else if (KEYBOARD_MAIN_6 || KEYBOARD_NUM_6)
+    else if (key == KEYBOARD_MAIN_6 || key == KEYBOARD_NUM_6)
         env->camera->beta += 0.05;
-    else if (KEYBOARD_MAIN_1 || KEYBOARD_NUM_1 ||
-            KEYBOARD_MAIN_3 || KEYBOARD_NUM_3)
+    else if (key == KEYBOARD_MAIN_1 || key == KEYBOARD_NUM_1 ||
+            key == KEYBOARD_MAIN_3 || key == KEYBOARD_NUM_3)
         env->camera->gamma += 0.05;
-    else if (KEYBOARD_MAIN_7 || KEYBOARD_NUM_7 ||
-            KEYBOARD_MAIN_9 || KEYBOARD_NUM_9)
+    else if (key == KEYBOARD_MAIN_7 || key == KEYBOARD_NUM_7 ||
+            key == KEYBOARD_MAIN_9 || key == KEYBOARD_NUM_9)
         env->camera->gamma -= 0.05;
     draw(env->map, env);
 }

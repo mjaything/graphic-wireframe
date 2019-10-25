@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:37:12 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:37:13 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 #include "../libft/libft.h"
 #include "../minilibx_macos/mlx.h"
@@ -72,15 +84,24 @@ void		draw_instruction(t_env *env)
     y = 0;
     mlx_ptr = env->mlx_ptr;
     win_ptr = env->win_ptr;
-    mlx_string_put(mlx_ptr, win_ptr, 65, y += 20, COLOR_TEXT_BLACK, "FdF Instruction");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 35, COLOR_TEXT_BLACK, "Zoom Camera: Mouse Scroll or +, -");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, "Move Camera: Keyboard Arrow Keys");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, "Flatten Camera: <, >");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, "Rotate Camera: Click Mouse and Move");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, "- X Axis: Keyboard 2, 8");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, "- Y Axis: Keyboard 4, 6");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, "- Z Axis: - Keyboard 1, 3, 7, 9");
-    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, "Change Projection: Keyboard I(Isometric), P(Parellel)");
+    mlx_string_put(mlx_ptr, win_ptr, 65, y += 20, COLOR_TEXT_BLACK, 
+        "FdF Instruction");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 35, COLOR_TEXT_BLACK, 
+        "Zoom Camera: Scroll or +, -");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, 
+        "Move Camera: Arrow Keys");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, 
+        "Flatten Camera: <, >");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, 
+        "Rotate Camera: Click Mouse and Move");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, 
+        "- X Axis: 2, 8");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, 
+        "- Y Axis: 4, 6");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 25, COLOR_TEXT_BLACK, 
+        "- Z Axis: 1, 3, 7, 9");
+    mlx_string_put(mlx_ptr, win_ptr, 15, y += 30, COLOR_TEXT_BLACK, 
+        "Projection: I(Isometric), P(Parallel)");
 }
 
 void		draw(t_map *map, t_env *env)

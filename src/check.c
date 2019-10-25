@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:37:08 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:37:09 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 #include "../libft/libft.h"
 
@@ -73,4 +85,32 @@ t_bool 			is_number(char *str, int base)
     else
         result = false;
     return (result);
+}
+
+int     atoi_base(const char *str, int base)
+{
+    unsigned long   result;
+    int             sign;
+    size_t          i;
+
+    result = 0;
+    sign = 1;
+    i = 0;
+    while (is_space(str[i]))
+        i++;
+    if (base != 10 && !has_prefix(&str[i], base))
+        return (false);
+    if (base == 2 || base == 16)
+        i += 2;
+    else if (base == 8)
+        i++;
+    else if (base == 10 && (str[i] == '-' || str[i] == '+'))
+    {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+    while (is_digit_base(str[i], base) >= 0)
+        result = result * base + is_digit_base(str[i++], base);
+    return ((int)(result * sign));
 }

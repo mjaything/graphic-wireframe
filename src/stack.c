@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 20:37:04 by min-kim           #+#    #+#             */
+/*   Updated: 2019/10/24 20:37:05 by min-kim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
+#include "../libft/libft.h"
 #include <stdlib.h>
 
 void				push(t_matrix_element **matrix_element_stack,
@@ -30,7 +43,7 @@ void				transform_stack_to_array(t_matrix_element **matrix_element_stack,
 {
     t_matrix_element    *matrix_element;
     size_t              arr_size;
-    ssize_t             i;
+    size_t              i;
 
     arr_size = map->width * map->height * sizeof(int);
     if (!(map->matrix_element_arr = (int *)ft_memalloc(arr_size)))
