@@ -44,8 +44,8 @@ t_map		*initialize_map(void)
 	map->height = 0;
 	map->matrix_element_arr = NULL;
 	map->color_arr = NULL;
-	map->z_max = INT_MAX_VAL;
-	map->z_min = INT_MIN_VAL;
+	map->z_max = INT_MIN_VAL;
+	map->z_min = INT_MAX_VAL;
 	map->z_range = 0;
 	return (map);
 }
