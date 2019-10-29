@@ -96,7 +96,7 @@ typedef enum							e_projection
 	parallel
 }										t_projection;
 
-typedef struct							s_pointt
+typedef struct							s_point
 {
 	int									x;
 	int									y;
