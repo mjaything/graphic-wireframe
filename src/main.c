@@ -40,7 +40,5 @@ int	main(int argc, char *argv[])
 		mlx_loop(env->mlx_ptr);
 	}
 	terminate(ERR_USAGE);
-	while (1)
-		;
 	return (0);
 }
