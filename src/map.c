@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:25 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/25 05:42:51 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:35:02 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ static void				parse_row(char **row_arr,
 	}
 	if (map->height == 0)
 		map->width = width;
-	else if (map->width != width)
-		terminate(ERR_MAP_FILE);
 }
 
 int						load_map(const int fd,

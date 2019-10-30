@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:08 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/25 06:02:04 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:24:41 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ t_bool			is_number(char *str, int base)
 		i++;
 	else if ((base == 10) && (str[i] == '-' || str[i] == '+'))
 		i++;
-	while (is_digit_base(str[i++], base) >= 0)
+	while (is_digit_base(str[i], base) >= 0)
+	{
+		i++;
 		digits++;
+	}
 	if (!str[i] && digits)
 		result = true;
 	else
