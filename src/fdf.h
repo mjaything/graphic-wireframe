@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:16 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/30 22:44:59 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 23:00:59 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@
 # define ERR_TRANSFORM_TO_COLOR_ARRAY	"Error: Stack to array(color)."
 # define ERR_CAMERA_INIT				"Error: Camera initialization."
 
-# define WIDTH							3000
-# define HEIGHT							2000
-# define INSTRUCTION_WIDTH				450
+# define WIDTH							1920
+# define HEIGHT							1080
 
 # define COLOR_BACKGROUND_ROSE_WHITE	0xFDF2EE
 # define COLOR_WIRE_CALYPSO				0x3B7388
@@ -172,7 +171,6 @@ int										get_light(int start, int end,
 int										get_final_color(t_point current,
 										t_point start, t_point end,
 										t_point delta);
-void									draw_instruction(t_env *env);
 void									draw(t_map *map, t_env *env);
 int										close(void *param);
 void									setup_events(t_env *env);
