@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:16 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/25 07:44:07 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:44:59 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@
 # define HEIGHT							2000
 # define INSTRUCTION_WIDTH				450
 
-# define COLOR_TEXT_BLACK				0x000000
-# define COLOR_INSTRUCTION_WHITE		0xFFFFFF
 # define COLOR_BACKGROUND_ROSE_WHITE	0xFDF2EE
 # define COLOR_WIRE_CALYPSO				0x3B7388
 # define COLOR_WIRE_CHAMBRAY			0x50627E

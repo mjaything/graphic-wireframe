@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:30 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/25 05:41:14 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:51:10 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ t_point		project_2d(t_point p, t_env *env)
 	rotate_z_axis(&p.x, &p.y, env->camera->gamma);
 	if (env->camera->projection == isometric)
 		transform_to_isometric_projection(&p.x, &p.y, p.z);
-	p.x += ((WIDTH - INSTRUCTION_WIDTH) / 2) + env->camera->x_offset
-		+ INSTRUCTION_WIDTH;
+	p.x += (WIDTH + env->map->width * env->camera->zoom) / 2
+		+ env->camera->x_offset;
 	p.y += (HEIGHT + env->map->height * env->camera->zoom) / 2
 		+ env->camera->y_offset;
 	return (p);

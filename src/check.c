@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:08 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/30 22:24:41 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:57:07 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ t_bool			is_number(char *str, int base)
 {
 	size_t	i;
 	size_t	digits;
-	t_bool	result;
 
 	i = 0;
 	digits = 0;
@@ -81,10 +80,9 @@ t_bool			is_number(char *str, int base)
 		digits++;
 	}
 	if (!str[i] && digits)
-		result = true;
+		return (true);
 	else
-		result = false;
-	return (result);
+		return (false);
 }
 
 int				atoi_base(const char *str, int base)

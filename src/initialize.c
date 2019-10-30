@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:36:51 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/25 05:02:25 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:52:27 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_camera	*initialize_camera(t_env *env)
 
 	if (!(camera = (t_camera *)ft_memalloc(sizeof(t_camera))))
 		terminate(ERR_CAMERA_INIT);
-	camera->zoom = MIN_VAL((WIDTH - INSTRUCTION_WIDTH) / env->map->width / 2,
+	camera->zoom = MIN_VAL(WIDTH / env->map->width / 2,
 			HEIGHT / env->map->height / 2);
 	camera->alpha = 0;
 	camera->beta = 0;
