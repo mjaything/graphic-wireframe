@@ -43,7 +43,8 @@ static void	draw_line(t_point a, t_point b, t_env *env)
 	while (cur.x != b.x || cur.y != b.y)
 	{
 		put_pixel(env, cur.x, cur.y, get_final_color(cur, a, b, delta));
-		if ((error[1] = error[0] * 2) > -delta.y)
+		error[1] = error[0] * 2;
+		if (error[1] > -delta.y)
 		{
 			error[0] -= delta.y;
 			cur.x += sign.x;
