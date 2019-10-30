@@ -6,7 +6,7 @@
 /*   By: min-kim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:37:12 by min-kim           #+#    #+#             */
-/*   Updated: 2019/10/30 22:54:56 by min-kim          ###   ########.fr       */
+/*   Updated: 2019/10/30 22:58:56 by min-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	draw_line(t_point a, t_point b, t_env *env)
 	while (cur.x != b.x || cur.y != b.y)
 	{
 		put_pixel(env, cur.x, cur.y, get_final_color(cur, a, b, delta));
-		if (error[1] = error[0] * 2 > -delta.y)
+		if ((error[1] = error[0] * 2) > -delta.y)
 		{
 			error[0] -= delta.y;
 			cur.x += sign.x;
