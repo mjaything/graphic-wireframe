@@ -1,8 +1,8 @@
-# 42-fdf
+# graphic-wireframe
 Graphic Wireframe Representation Program
 
-50-4
+50-4<br/>
 ![](img/50-4.gif)
 
-pylone
+pylone<br/>
 ![](img/pylone.gif)
