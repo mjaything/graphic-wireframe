@@ -29,7 +29,7 @@ Sample maps are located in the [maps](https://github.com/mjaything/graphic-wiref
 ./fdf MAP_FILE
 ```
 
-_Note_: fdf is an abbreviation of 'fils de fer', which means 'wireframe' in French
+_Note_: 'fdf' is an abbreviation of 'fils de fer', which means 'wireframe' in French
 
 ## Examples
 50-4
