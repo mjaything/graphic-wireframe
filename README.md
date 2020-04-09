@@ -3,7 +3,7 @@ This project is about creating a simplified 3D graphic representation of a relie
 
 This project uses the graphic library [miniLibX](minilibx_macos). Developed by [42](https://www.42.fr/), it allows users to open a window, light a pixel, and deal with keyboard and mouse.
 
-_Note_: The miniLibX library is primarily built for MacOS. In order to use it on Linux, please refer to [here](https://github.com/ttshivhula/minilibx).
+_Note_: The miniLibX library is primarily built for MacOS. In order to use it on Linux, please refer to [here](https://github.com/42Paris/minilibx-linux).
 
 ## How to run the program
 1. Fork this repository into your Github account.
