@@ -23,8 +23,7 @@ cd graphic-wireframe
 make
 ```
 
-5. Run the executable with the map file
-<br/>
+5. Run the executable with the map file<br/>
 Sample maps are located in the [maps](https://github.com/mjaything/graphic-wireframe/tree/master/maps) directory.
 ```
 ./fdf MAP_FILE
