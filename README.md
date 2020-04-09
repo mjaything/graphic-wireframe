@@ -1,20 +1,51 @@
 # Graphic Wireframe Representation Program
 This project is about creating a simplified 3D graphic representation of a relief landscape. The 3D representation of a landscape is a critical aspect of modern mapping. This project has allowed me to learn how to place points in space, how to join them with segments and how to observe the scene from a particular viewpoint.
 
-This project uses the graphic library [miniLibX](minilibx_macos). Developed by [42](https://www.42.fr/), it allows users to open a window, light a pixel, and deal with keyboard and mouse.
+This project uses the graphic library [miniLibX](minilibx_macos). Developed by Olivier Crouzet, it allows users to open a window, light a pixel, and deal with keyboard and mouse.
 
-_Note_: The miniLibX library used in this repo is for MacOS. In order to use it on Linux, please refer to [here](https://github.com/42Paris/minilibx-linux).
+_Note_: The miniLibX library used in this repository is made for MacOS. In order to use it on Linux, please refer to [here](https://github.com/42Paris/minilibx-linux).
 
 ## How to run the program
-1. Fork this repository into your Github account.
+1. [Fork](https://help.github.com/articles/fork-a-repo) this repository into your Github account.
 
-2. 
+2. [Clone](https://help.github.com/articles/cloning-a-repository/) your fork of the repository onto your local computer.
+```
+git clone https://github.com/mjaything/graphic-wireframe.git
+```
 
-## Example
-50-4<br/>
+3. Navigate into the cloned repository.
+```
+cd graphic-wireframe
+```
+
+4. Run the [make](https://www.gnu.org/software/make/manual/make.html).
+```
+make
+```
+
+5. Run the executable with the map file
+<br/>
+Sample maps are located in the [maps](https://github.com/mjaything/graphic-wireframe/tree/master/maps) directory.
+```
+./fdf MAP_FILE
+```
+
+_Note_: fdf is an abbreviation of 'fils de fer', which means 'wireframe' in French
+
+## Examples
+50-4
+<br/>
+```
+./fdf maps/50.4.fdf
+```
 ![](img/50-4.gif)
 
-Pylone<br/>
+Pylone
+<br/>
+```
+./fdf maps/pylone.fdf
+```
 ![](img/pylone.gif)
 
-## Acknowledgement
+## Acknowledgements
+Sample maps are provided by [42](https://www.42.fr/).
