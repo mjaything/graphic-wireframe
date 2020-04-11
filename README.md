@@ -6,24 +6,22 @@ This project is written in C and uses the graphic library [miniLibX](minilibx_ma
 _Note_: The miniLibX library used in this repository is made for MacOS. In order to use it on Linux, please refer to [here](https://github.com/42Paris/minilibx-linux).
 
 ## How to run the program
-1. [Fork](https://help.github.com/articles/fork-a-repo) this repository into your Github account.
-
-2. [Clone](https://help.github.com/articles/cloning-a-repository/) your fork of the repository onto your local computer.
+1. [Clone](https://help.github.com/articles/cloning-a-repository/) your fork of the repository onto your local computer.
 ```
 git clone https://github.com/mjaything/graphic-wireframe.git
 ```
 
-3. Navigate into the cloned repository.
+2. Navigate into the cloned repository.
 ```
 cd graphic-wireframe
 ```
 
-4. Run the [make](https://www.gnu.org/software/make/manual/make.html).
+3. Run [make](https://www.gnu.org/software/make/manual/make.html).
 ```
 make
 ```
 
-5. Run the executable with the map file<br/>
+4. Run the executable with the map file<br/>
 Sample maps are located in the [maps](https://github.com/mjaything/graphic-wireframe/tree/master/maps) directory.
 ```
 ./fdf MAP_FILE
