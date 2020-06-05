@@ -45,6 +45,3 @@ Pylone
 
 ## Acknowledgements
 Sample maps are provided by [42](https://www.42.fr/).
-
-## License
-This work is published under the terms of **[42 Unlicense](https://github.com/gcamerli/42unlicense)**.
