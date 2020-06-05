@@ -6,7 +6,7 @@ This project is written in C and uses the graphic library [miniLibX](minilibx_ma
 _Note_: The miniLibX library used in this repository is made for MacOS. In order to use it on Linux, please refer to [here](https://github.com/42Paris/minilibx-linux).
 
 ## How to run the program
-1. [Clone](https://help.github.com/articles/cloning-a-repository/) your fork of the repository onto your local computer.
+1. [Clone](https://help.github.com/articles/cloning-a-repository/) the repository onto your local computer.
 ```
 git clone https://github.com/mjaything/graphic-wireframe.git
 ```
