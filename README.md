@@ -32,7 +32,7 @@ _Note_: 'fdf' is an abbreviation of 'fils de fer', which means 'wireframe' in Fr
 50-4
 <br/>
 ```
-./fdf maps/50.4.fdf
+./fdf maps/50-4.fdf
 ```
 ![](img/50-4.gif)
 
